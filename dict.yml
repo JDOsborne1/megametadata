@@ -1,0 +1,19 @@
+default:
+  name: megametadata testing dictionary
+  description: a set of YAML variables used to describe some toy data
+AccountLevel:
+  description: Account Level variables, Effectively the person level
+  name: Account Level
+  AccountID:
+    name: AcccountID
+    description: SAP unique identifier, primary SCV identifier
+    type: character
+    length: 10
+  AffluenceV2P:
+    name: Affluence Version 2 Personal
+    description: Experian Affluence variable, 2nd edition, on a personal level
+    type: character
+    length: 2
+HouseholdLevel:
+  Description: Household Level aggregation of variables
+  name: Household Level
