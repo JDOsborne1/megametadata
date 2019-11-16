@@ -16,11 +16,12 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(megametadata)
+library(yaml)
+library(dplyr)
 ```
 
 
 ```{r}
-library(yaml)
 
 
 here::here("dict.yml") %>%
@@ -35,7 +36,7 @@ write_yaml(tester, here::here("dict.yml") )
 
 tester <- list()
 
-test_data <- iris %>% as.data.table()
+test_data <- iris %>% as_tibble()
 
 appendIntegerMeta <- function(a_dataframe, a_list, a_column){
         if(is.null(a_list[[a_column]])) {
