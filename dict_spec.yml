@@ -1,0 +1,15 @@
+default:
+  name: megametadata testing dictionary specification
+  description: a YAML specification used to determine which transforms are applied when generating the metadata dict
+AccountLevel:
+  description: Account Level variables, Effectively the person level
+  name: Account Level
+  integer:
+    minimum: min
+    maximum: max
+    type: class
+    range: utilRange
+    middle: median
+HouseholdLevel:
+  Description: Household Level aggregation of variables
+  name: Household Level
