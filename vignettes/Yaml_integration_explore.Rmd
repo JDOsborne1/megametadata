@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(megametadata)
+# library(megametadata)
 library(yaml)
 library(dplyr)
 ```
@@ -24,15 +24,17 @@ library(dplyr)
 ```{r}
 
 
-here::here("dict.yml") %>%
+here::here("template.yml") %>%
         read_yaml() -> tester
+
+tester$AccountLevel <- iris %>% metaVariableAppend(tester$AccountLevel)
 
 here::here("dict_spec.yml") %>%
         read_yaml() -> spec
 
 
 
-#write_yaml(tester, here::here("dict.yml") )
+write_yaml(tester, here::here("dict.yml") )
 
 #tester <- list()
 
@@ -52,20 +54,27 @@ test_data <- iris %>% as_tibble()
 #test_list <- test_data %>%
  #       appendIntegerMeta(tester, "Sepal.Length")
 
-iris %>% 
-  colnames()
-metaColnamer <- function(meta_list, column){
-  meta_list[[column]] <- list()
-  meta_list[[column]][["name"]] <- column
-  meta_list
+
+
+test_data[["Sepal.Length"]]
+
+tester[["AccountLevel"]][["Sepal.Length"]][["class"]]
+
+spec[["AccountLevel"]][["numeric"]]
+
+for(i in colnames(iris)){
+  
+
+tester[["AccountLevel"]][[i]]  <- tester[["AccountLevel"]][[i]] %>%  append(
+  spec[["AccountLevel"]][[
+    tester[["AccountLevel"]][[i]][["class"]]
+    ]] %>%
+    map(utilEvalOnData, test_data[[i]])
+)
 }
+  
+  
 
-iris %>% 
-  colnames() %>% 
-  purrr::map(metaColnamer, meta_list = tester$AccountLevel )
-
-
-tester$AccountLevel$Sepal.Length = spec$AccountLevel$integer %>% purrr::map(utilEvalOnData, data = iris$Sepal.Length)
 
 ```
 

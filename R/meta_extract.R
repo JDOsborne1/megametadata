@@ -31,8 +31,9 @@ uniqueness <- function(vect){
         return((length(unique(vect))-1)/length(vect))
 }
 
+
 constCharLength <- function(vect){
-        number_of_lengths <- length(unique(nchar(vect)))
+        number_of_lengths <- length(unique(nchar(as.character(vect))))
         return(number_of_lengths == 1)
 }
 

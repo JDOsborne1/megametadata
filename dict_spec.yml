@@ -4,7 +4,7 @@ default:
 AccountLevel:
   description: Account Level variables, Effectively the person level
   name: Account Level
-  integer:
+  numeric:
     minimum: min
     maximum: max
     type: class
