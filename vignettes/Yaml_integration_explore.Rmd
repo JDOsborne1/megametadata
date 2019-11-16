@@ -32,25 +32,37 @@ here::here("dict_spec.yml") %>%
 
 
 
-write_yaml(tester, here::here("dict.yml") )
+#write_yaml(tester, here::here("dict.yml") )
 
-tester <- list()
+#tester <- list()
 
 test_data <- iris %>% as_tibble()
 
-appendIntegerMeta <- function(a_dataframe, a_list, a_column){
-        if(is.null(a_list[[a_column]])) {
-                a_list[[a_column]] <- list()
-        }
+#appendIntegerMeta <- function(a_dataframe, a_list, a_column){
+ #       if(is.null(a_list[[a_column]])) {
+  #              a_list[[a_column]] <- list()
+   #     }
+#
+ #       a_list[[a_column]][["min"]] <- min(a_dataframe[[a_column]])
+  #      a_list[[a_column]][["max"]] <- max(a_dataframe[[a_column]])
+   #     a_list[[a_column]][["name"]] <- a_column
+    #    a_list
+#}
 
-        a_list[[a_column]][["min"]] <- min(a_dataframe[[a_column]])
-        a_list[[a_column]][["max"]] <- max(a_dataframe[[a_column]])
-        a_list[[a_column]][["name"]] <- a_column
-        a_list
+#test_list <- test_data %>%
+ #       appendIntegerMeta(tester, "Sepal.Length")
+
+iris %>% 
+  colnames()
+metaColnamer <- function(meta_list, column){
+  meta_list[[column]] <- list()
+  meta_list[[column]][["name"]] <- column
+  meta_list
 }
 
-test_list <- test_data %>%
-        appendIntegerMeta(tester, "Sepal.Length")
+iris %>% 
+  colnames() %>% 
+  purrr::map(metaColnamer, meta_list = tester$AccountLevel )
 
 
 tester$AccountLevel$Sepal.Length = spec$AccountLevel$integer %>% purrr::map(utilEvalOnData, data = iris$Sepal.Length)

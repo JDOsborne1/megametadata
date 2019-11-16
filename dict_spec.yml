@@ -10,6 +10,13 @@ AccountLevel:
     type: class
     range: utilRange
     middle: median
+    uniqueness: uniqueness
+  factor:
+    levels: levels
+    ordered: is.ordered
+  character:
+    constant_length: constCharLength
+    uniqueness: uniqueness
 HouseholdLevel:
   Description: Household Level aggregation of variables
   name: Household Level
