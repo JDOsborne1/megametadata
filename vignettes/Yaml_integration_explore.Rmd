@@ -1,0 +1,58 @@
+---
+title: "Yaml_integration_explore"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Yaml_integration_explore}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(megametadata)
+```
+
+
+```{r}
+library(yaml)
+
+
+here::here("dict.yml") %>%
+        read_yaml() -> tester
+
+here::here("dict_spec.yml") %>%
+        read_yaml() -> spec
+
+
+
+write_yaml(tester, here::here("dict.yml") )
+
+tester <- list()
+
+test_data <- iris %>% as.data.table()
+
+appendIntegerMeta <- function(a_dataframe, a_list, a_column){
+        if(is.null(a_list[[a_column]])) {
+                a_list[[a_column]] <- list()
+        }
+
+        a_list[[a_column]][["min"]] <- min(a_dataframe[[a_column]])
+        a_list[[a_column]][["max"]] <- max(a_dataframe[[a_column]])
+        a_list[[a_column]][["name"]] <- a_column
+        a_list
+}
+
+test_list <- test_data %>%
+        appendIntegerMeta(tester, "Sepal.Length")
+
+
+tester$AccountLevel$Sepal.Length = spec$AccountLevel$integer %>% purrr::map(utilEvalOnData, data = iris$Sepal.Length)
+
+```
+
