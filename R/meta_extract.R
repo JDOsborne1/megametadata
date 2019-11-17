@@ -35,13 +35,6 @@ normalise <- function(vect){
         return(vect/max(vect, na.rm=T))
 }
 
-# getDensity <- function(vect){
-#         require(ggplot2)
-#         plot <- ggplot() +
-#                 aes(x = vect) +
-#                 geom_density()
-#         return(plot)
-# }
 
 #' Get the uniqueness of a vector
 #'
