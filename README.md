@@ -7,6 +7,8 @@
 
 [![Travis build
 status](https://travis-ci.com/JDOsborne1/meta-monster.svg?branch=master)](https://travis-ci.com/JDOsborne1/meta-monster)
+[![Codecov test
+coverage](https://codecov.io/gh/JDOsborne1/meta-monster/branch/master/graph/badge.svg)](https://codecov.io/gh/JDOsborne1/meta-monster?branch=master)
 <!-- badges: end -->
 
 ### Metadata and data dictionary linking tools for R
