@@ -29,7 +29,8 @@ library(dplyr)
 here::here("template.yml") %>%
         read_yaml() -> tester
 
-tester$AccountLevel <- iris %>% metaVariableAppend(tester$AccountLevel) 
+tester$AccountLevel <- iris %>% 
+  metaVariableAppend(tester$AccountLevel) 
 
 here::here("dict_spec.yml") %>%
         read_yaml() -> spec
