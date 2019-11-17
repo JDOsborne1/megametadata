@@ -20,26 +20,22 @@ library(megametadata)
 # here::here("R") %>% {glue::glue("{.}/{list.files(.)}")} %>% purrr::map(source)
 library(yaml)
 library(dplyr)
+library(purrr)
 ```
 
 
 ```{r}
 
 
-here::here("template.yml") %>%
+system.file("extdata", "template.yml", package = "megametadata") %>%
         read_yaml() -> tester
 
 tester$AccountLevel <- iris %>% 
   metaVariableAppend(tester$AccountLevel) 
 
-here::here("dict_spec.yml") %>%
+system.file("extdata", "dict_spec.yml", package = "megametadata") %>%
         read_yaml() -> spec
 
-
-
-write_yaml(tester, here::here("dict.yml") )
-
-#tester <- list()
 
 test_data <- iris %>% as_tibble()
 
