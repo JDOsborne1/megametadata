@@ -7,7 +7,7 @@
 guessDataType(vect)
 }
 \arguments{
-\item{vect}{}
+\item{vect}{the vector in question}
 }
 \description{
 Guess the data type based on the attributes

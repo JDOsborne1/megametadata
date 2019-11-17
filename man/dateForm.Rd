@@ -7,7 +7,7 @@
 dateForm(vect)
 }
 \arguments{
-\item{vect}{}
+\item{vect}{the vector in question}
 }
 \description{
 Provisional date format checking function

@@ -7,7 +7,7 @@
 normalise(vect)
 }
 \arguments{
-\item{vect}{}
+\item{vect}{the vector in question}
 }
 \description{
 Normalise a Vector

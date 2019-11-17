@@ -2,7 +2,7 @@
 
 #' Function to compute the distinctiveness of a function, using a variant log-loss
 #'
-#' @param vect
+#' @param vect the vector in question
 #'
 #' @return
 #' @export
@@ -25,7 +25,7 @@ distinctiveness <- function(vect){
 
 #' Normalise a Vector
 #'
-#' @param vect
+#' @param vect the vector in question
 #'
 #' @return
 #' @export
@@ -45,7 +45,7 @@ normalise <- function(vect){
 
 #' Get the uniqueness of a vector
 #'
-#' @param vect
+#' @param vect the vector in question
 #'
 #' @return
 #' @export
@@ -58,7 +58,7 @@ uniqueness <- function(vect){
 
 #' Does the variable have a constant length
 #'
-#' @param vect
+#' @param vect the vector in question
 #'
 #' @return
 #' @export
@@ -71,7 +71,7 @@ constCharLength <- function(vect){
 
 #' Provisional date format checking function
 #'
-#' @param vect
+#' @param vect the vector in question
 #'
 #' @return
 #' @export
@@ -83,7 +83,7 @@ constCharLength <- function(vect){
 
 #' Provisional postcode format checker
 #'
-#' @param vect
+#' @param vect the vector in question
 #'
 #' @return
 #' @export
@@ -95,7 +95,7 @@ constCharLength <- function(vect){
 
 #' Guess the data type based on the attributes
 #'
-#' @param vect
+#' @param vect the vector in question
 #'
 #' @return
 #' @export

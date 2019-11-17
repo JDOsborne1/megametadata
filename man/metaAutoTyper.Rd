@@ -7,7 +7,11 @@
 metaAutoTyper(column, meta_list, dataset)
 }
 \arguments{
-\item{dataset}{}
+\item{column}{The column to type}
+
+\item{meta_list}{A dictionary for the dataset}
+
+\item{dataset}{The dataset to be documenting}
 }
 \description{
 Process to guess the data category of the columns for the meta_dict

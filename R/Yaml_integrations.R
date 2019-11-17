@@ -1,11 +1,7 @@
 
-
-
-
-
 #' Function to determine the range of an integer list
 #'
-#' @param x
+#' @param x the vector to determine the range of
 #'
 #' @return
 #' @export
@@ -18,8 +14,8 @@ utilRange <- function(x) {
 
 #' Function to evaluate a string name of function on some specified data
 #'
-#' @param x
-#' @param data
+#' @param x the name of the function to evaluate on the data
+#' @param data the data to evaluate the function on
 #'
 #' @return
 #' @export
@@ -32,8 +28,8 @@ utilEvalOnData <- function(x, data) {
 
 #' Process to name the columns in the meta_dict
 #'
-#' @param column
-#' @param meta_list
+#' @param column The column to type
+#' @param meta_list A dictionary for the dataset
 #'
 #' @return
 #' @export
@@ -47,9 +43,9 @@ metaColnamer <- function(column, meta_list){
 
 #' Process to guess the data category of the columns for the meta_dict
 #'
-#' @param column
-#' @param meta_list
-#' @param dataset
+#' @param column The column to type
+#' @param meta_list A dictionary for the dataset
+#' @param dataset The dataset to be documenting
 #'
 #' @return
 #' @export
@@ -62,9 +58,9 @@ metaAutoTyper <- function(column, meta_list, dataset){
 
 #' process to append the typing of a column at read time to the meta_dict
 #'
-#' @param column
-#' @param meta_list
-#' @param dataset
+#' @param column The column to type
+#' @param meta_list A dictionary for the dataset
+#' @param dataset The dataset to be documenting
 #'
 #' @return
 #' @export
@@ -78,8 +74,8 @@ metaAutoClassifier <- function(column, meta_list, dataset){
 
 #' Process to append the first pass variables to the meta_dict
 #'
-#' @param a_tibble
-#' @param Leveled_meta
+#' @param a_tibble The dataset to be documenting
+#' @param Leveled_meta the level of the dataset dictionary to be documented
 #'
 #' @return
 #' @export
@@ -106,10 +102,10 @@ metaVariableAppend <- function(a_tibble, Leveled_meta = list()){
 #' @description Function which takes an existing dictionary template and returns an updated
 #'    version which fits the specification.
 #'
-#' @param a_dict
-#' @param a_spec
-#' @param a_dataset
-#' @param a_level
+#' @param a_dict A dictionary for the dataset
+#' @param a_spec The specification for the dictionary
+#' @param a_dataset The dataset to be documenting
+#' @param a_level The level to perform the documentation
 #'
 #' @return
 #' @export

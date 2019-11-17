@@ -7,7 +7,13 @@
 metaUpdateDictWithSpec(a_dict, a_spec, a_dataset, a_level)
 }
 \arguments{
-\item{a_level}{}
+\item{a_dict}{A dictionary for the dataset}
+
+\item{a_spec}{The specification for the dictionary}
+
+\item{a_dataset}{The dataset to be documenting}
+
+\item{a_level}{The level to perform the documentation}
 }
 \description{
 Function which takes an existing dictionary template and returns an updated

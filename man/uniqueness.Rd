@@ -7,7 +7,7 @@
 uniqueness(vect)
 }
 \arguments{
-\item{vect}{}
+\item{vect}{the vector in question}
 }
 \description{
 Get the uniqueness of a vector

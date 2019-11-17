@@ -7,7 +7,7 @@
 utilRange(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{the vector to determine the range of}
 }
 \description{
 Function to determine the range of an integer list

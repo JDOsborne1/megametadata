@@ -7,7 +7,7 @@
 distinctiveness(vect)
 }
 \arguments{
-\item{vect}{}
+\item{vect}{the vector in question}
 }
 \description{
 Function to compute the distinctiveness of a function, using a variant log-loss

@@ -7,7 +7,9 @@
 metaVariableAppend(a_tibble, Leveled_meta = list())
 }
 \arguments{
-\item{Leveled_meta}{}
+\item{a_tibble}{The dataset to be documenting}
+
+\item{Leveled_meta}{the level of the dataset dictionary to be documented}
 }
 \description{
 Process to append the first pass variables to the meta_dict
