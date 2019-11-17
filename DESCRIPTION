@@ -4,7 +4,8 @@ Title: Generate and use Metadata
 Version: 0.1.0
 Author: Joseph Osborne 
 Maintainer: Joseph Osborne <theosborne@outlook.com>
-Description: A package to generate and use metadata files for R objects
+Description: A package to generate and use metadata files for R objects. 
+    Focusing on an iterative approach with YAML files.
 License: Apache License (>= 2.0)
 Encoding: UTF-8
 LazyData: true
@@ -12,7 +13,8 @@ Imports:
     dplyr,
     yaml,
     here,
-    magrittr
+    magrittr,
+    purrr
 Suggests: 
     knitr,
     rmarkdown
