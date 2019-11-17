@@ -9,6 +9,7 @@ Description: A package to generate and use metadata files for R objects.
 License: Apache License (>= 2.0)
 Encoding: UTF-8
 LazyData: true
+Depends: R (>= 2.10)
 Imports:
     dplyr,
     yaml,
