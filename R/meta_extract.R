@@ -69,12 +69,29 @@ constCharLength <- function(vect){
         return(number_of_lengths == 1)
 }
 
-# dateForm <- function(vect){
-#         return(TRUE)
-# }
-# postForm <- function(vect){
-#         return(TRUE)
-# }
+#' Provisional date format checking function
+#'
+#' @param vect
+#'
+#' @return
+#' @export
+#'
+#' @examples
+ dateForm <- function(vect){
+         return(TRUE)
+ }
+
+#' Provisional postcode format checker
+#'
+#' @param vect
+#'
+#' @return
+#' @export
+#'
+#' @examples
+ postForm <- function(vect){
+         return(TRUE)
+ }
 
 #' Guess the data type based on the attributes
 #'
