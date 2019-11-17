@@ -15,7 +15,9 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-# library(megametadata)
+library(megametadata)
+
+# here::here("R") %>% {glue::glue("{.}/{list.files(.)}")} %>% purrr::map(source)
 library(yaml)
 library(dplyr)
 ```
@@ -27,7 +29,7 @@ library(dplyr)
 here::here("template.yml") %>%
         read_yaml() -> tester
 
-tester$AccountLevel <- iris %>% metaVariableAppend(tester$AccountLevel)
+tester$AccountLevel <- iris %>% metaVariableAppend(tester$AccountLevel) 
 
 here::here("dict_spec.yml") %>%
         read_yaml() -> spec
@@ -62,18 +64,10 @@ tester[["AccountLevel"]][["Sepal.Length"]][["class"]]
 
 spec[["AccountLevel"]][["numeric"]]
 
-for(i in colnames(iris)){
-  
 
-tester[["AccountLevel"]][[i]]  <- tester[["AccountLevel"]][[i]] %>%  append(
-  spec[["AccountLevel"]][[
-    tester[["AccountLevel"]][[i]][["class"]]
-    ]] %>%
-    map(utilEvalOnData, test_data[[i]])
-)
-}
-  
-  
+
+new_dict <- metaUpdateDictWithSpec(tester, spec, test_data, "AccountLevel")
+
 
 
 ```

@@ -1,5 +1,13 @@
 # Functions for determining the metadata of a column automatically
 
+#' Function to compute the distinctiveness of a function, using a variant log-loss
+#'
+#' @param vect
+#'
+#' @return
+#' @export
+#'
+#' @examples
 distinctiveness <- function(vect){
         stage1 <- normalise(vect)
         # would need to sort the vector
@@ -15,35 +23,67 @@ distinctiveness <- function(vect){
         return(stage6)
 }
 
+#' Normalise a Vector
+#'
+#' @param vect
+#'
+#' @return
+#' @export
+#'
+#' @examples
 normalise <- function(vect){
         return(vect/max(vect, na.rm=T))
 }
 
-getDensity <- function(vect){
-        require(ggplot2)
-        plot <- ggplot() +
-                aes(x = vect) +
-                geom_density()
-        return(plot)
-}
+# getDensity <- function(vect){
+#         require(ggplot2)
+#         plot <- ggplot() +
+#                 aes(x = vect) +
+#                 geom_density()
+#         return(plot)
+# }
 
+#' Get the uniqueness of a vector
+#'
+#' @param vect
+#'
+#' @return
+#' @export
+#'
+#' @examples
 uniqueness <- function(vect){
         return((length(unique(vect))-1)/length(vect))
 }
 
 
+#' Does the variable have a constant length
+#'
+#' @param vect
+#'
+#' @return
+#' @export
+#'
+#' @examples
 constCharLength <- function(vect){
         number_of_lengths <- length(unique(nchar(as.character(vect))))
         return(number_of_lengths == 1)
 }
 
-dateForm <- function(vect){
-        return(TRUE)
-}
-postForm <- function(vect){
-        return(TRUE)
-}
+# dateForm <- function(vect){
+#         return(TRUE)
+# }
+# postForm <- function(vect){
+#         return(TRUE)
+# }
 
+#' Guess the data type based on the attributes
+#'
+#' @param vect
+#'
+#' @return
+#' @export
+#'
+#' @examples
 guessDataType <- function(vect){
         Type <- dplyr::case_when(
                 class(vect) == "Date" ~ "Date"

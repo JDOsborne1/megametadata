@@ -100,3 +100,30 @@ metaVariableAppend <- function(a_tibble, Leveled_meta = list()){
 
         Leveled_meta
 }
+
+#' Update dictionary to fit specification
+#'
+#' @description Function which takes an existing dictionary template and returns an updated
+#'    version which fits the specification.
+#'
+#' @param a_dict
+#' @param a_spec
+#' @param a_dataset
+#' @param a_level
+#'
+#' @return
+#' @export
+#'
+#' @examples
+metaUpdateDictWithSpec <- function(a_dict, a_spec, a_dataset, a_level){
+        for(i in colnames(a_dataset)){
+                a_dict[[a_level]][[i]]  <- a_dict[[a_level]][[i]] %>%  append(
+                        a_spec[[a_level]][[
+                                a_dict[[a_level]][[i]][["class"]]
+                                ]] %>%
+                                purrr::map(utilEvalOnData, a_dataset[[i]])
+                )
+        }
+        a_dict
+}
+
