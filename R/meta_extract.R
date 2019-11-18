@@ -1,27 +1,6 @@
 # Functions for determining the metadata of a column automatically
 
-#' Function to compute the distinctiveness of a function, using a variant log-loss
-#'
-#' @param vect the vector in question
-#'
-#' @return
-#' @export
-#'
-#' @examples
-distinctiveness <- function(vect){
-        stage1 <- normalise(vect)
-        # would need to sort the vector
-        stage2 <- sort(stage1)
-        # want to jitter the values to prevent the log-cost from exploding
-        stage3 <- jitter(stage2)
-        # want the differences between the values
-        stage4 <- diff(stage3)
-        # Want to apply a log-cost to the values in the vector This is not currently scaled for duplicates
-        stage5 <- log1p(stage4)
-        # Then combining the vector of costed differences to produce a single metric
-        stage6 <- sum(stage5)
-        return(stage6)
-}
+
 
 #' Normalise a Vector
 #'

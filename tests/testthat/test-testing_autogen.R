@@ -18,3 +18,8 @@ test_that("Auto Expansion by specification works", {
 
 })
 
+test_that("Type guessing works", {
+  expect_equal(guessDataType(iris$Sepal.Length), "PII/Value")
+  expect_equal(guessDataType(iris$Species), "Category")
+})
+
