@@ -7,7 +7,7 @@
 #' @export
 #'
 #' @examples
-utilRange <- function(x) {
+util_Range <- function(x) {
         max(x, na.rm = T) - min(x, na.rm = T)
 }
 
@@ -21,7 +21,7 @@ utilRange <- function(x) {
 #' @export
 #'
 #' @examples
-utilEvalOnData <- function(x, data) {
+util_EvalOnData <- function(x, data) {
         eval(as.name(x))(data)
 }
 
@@ -35,7 +35,7 @@ utilEvalOnData <- function(x, data) {
 #' @export
 #'
 #' @examples
-metaColnamer <- function(column, meta_list){
+meta_Colnamer <- function(column, meta_list){
         meta_list[[column]] <- list()
         meta_list[[column]][["name"]] <- column
         meta_list
@@ -51,7 +51,7 @@ metaColnamer <- function(column, meta_list){
 #' @export
 #'
 #' @examples
-metaAutoTyper <- function(column, meta_list, dataset){
+meta_AutoTyper <- function(column, meta_list, dataset){
         meta_list[[column]][["data_category"]] <- guessDataType(dataset[[column]])
         meta_list
 }
@@ -66,7 +66,7 @@ metaAutoTyper <- function(column, meta_list, dataset){
 #' @export
 #'
 #' @examples
-metaAutoClassifier <- function(column, meta_list, dataset){
+meta_AutoClassifier <- function(column, meta_list, dataset){
         meta_list[[column]][["class"]] <- class(dataset[[column]])
         meta_list
 }
@@ -81,7 +81,7 @@ metaAutoClassifier <- function(column, meta_list, dataset){
 #' @export
 #'
 #' @examples
-metaVariableAppend <- function(a_tibble, Leveled_meta = list()){
+meta_VariableAppend <- function(a_tibble, Leveled_meta = list()){
         for(i in colnames(a_tibble)){
                 Leveled_meta <- metaColnamer(i, Leveled_meta)
         }
@@ -111,7 +111,7 @@ metaVariableAppend <- function(a_tibble, Leveled_meta = list()){
 #' @export
 #'
 #' @examples
-metaUpdateDictWithSpec <- function(a_dict, a_spec, a_dataset, a_level){
+meta_UpdateDictWithSpec <- function(a_dict, a_spec, a_dataset, a_level){
         for(i in colnames(a_dataset)){
                 a_dict[[a_level]][[i]]  <- a_dict[[a_level]][[i]] %>%  append(
                         a_spec[[a_level]][[

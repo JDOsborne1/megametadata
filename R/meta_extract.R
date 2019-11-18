@@ -8,8 +8,8 @@
 #' @export
 #'
 #' @examples
-distinctiveness <- function(vect){
-        stage1 <- normalise(vect)
+util_Distinctiveness <- function(vect){
+        stage1 <- meta_Normalise(vect)
         # would need to sort the vector
         stage2 <- sort(stage1)
         # want to jitter the values to prevent the log-cost from exploding
@@ -31,7 +31,7 @@ distinctiveness <- function(vect){
 #' @export
 #'
 #' @examples
-normalise <- function(vect){
+util_Normalise <- function(vect){
         return(vect/max(vect, na.rm=T))
 }
 
@@ -44,7 +44,7 @@ normalise <- function(vect){
 #' @export
 #'
 #' @examples
-uniqueness <- function(vect){
+util_Uniqueness <- function(vect){
         return((length(unique(vect))-1)/length(vect))
 }
 
@@ -57,7 +57,7 @@ uniqueness <- function(vect){
 #' @export
 #'
 #' @examples
-constCharLength <- function(vect){
+util_ConstCharLength <- function(vect){
         number_of_lengths <- length(unique(nchar(as.character(vect))))
         return(number_of_lengths == 1)
 }
@@ -70,7 +70,7 @@ constCharLength <- function(vect){
 #' @export
 #'
 #' @examples
- dateForm <- function(vect){
+util_DateForm <- function(vect){
          return(TRUE)
  }
 
@@ -82,7 +82,7 @@ constCharLength <- function(vect){
 #' @export
 #'
 #' @examples
- postForm <- function(vect){
+util_PostForm <- function(vect){
          return(TRUE)
  }
 
@@ -94,15 +94,15 @@ constCharLength <- function(vect){
 #' @export
 #'
 #' @examples
-guessDataType <- function(vect){
+meta_GuessDataType <- function(vect){
         Type <- dplyr::case_when(
                 class(vect) == "Date" ~ "Date"
                 , class(vect) == "POSIXct" ~ "Date-Time"
-                , (uniqueness(vect) < 0.2) & constCharLength(vect) ~ "Tag"
-                , (uniqueness(vect) > 0.8) & constCharLength(vect) ~ "ID"
-                , (uniqueness(vect) >= 0.2) & (uniqueness(vect) <= 0.8) & constCharLength(vect) & dateForm(vect) ~ "Date"
-                , (uniqueness(vect) >= 0.2) & (uniqueness(vect) <= 0.8) & constCharLength(vect) & postForm(vect) ~ "Post Code"
-                , (uniqueness(vect) < 0.2) & !constCharLength(vect) ~ "Category"
+                , (util_Uniqueness(vect) < 0.2) & util_ConstCharLength(vect) ~ "Tag"
+                , (util_Uniqueness(vect) > 0.8) & util_ConstCharLength(vect) ~ "ID"
+                , (util_Uniqueness(vect) >= 0.2) & (util_Uniqueness(vect) <= 0.8) & util_ConstCharLength(vect) & util_DateForm(vect) ~ "Date"
+                , (util_Uniqueness(vect) >= 0.2) & (util_Uniqueness(vect) <= 0.8) & util_ConstCharLength(vect) & util_PostForm(vect) ~ "Post Code"
+                , (util_Uniqueness(vect) < 0.2) & !util_ConstCharLength(vect) ~ "Category"
                 , T ~ "PII/Value"
         )
         return(Type)
