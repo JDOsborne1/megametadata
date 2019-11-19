@@ -1,11 +1,11 @@
 ## Script to check the autogeneration elements of the package
 test_that("Autogeneration works", {
   test_dict <- metaDictionary.default(iris)
-  expect_equal(test_dict$Species$data_category, "Category")
-  expect_equal(test_dict$Species$class , "factor")
-  expect_equal(test_dict$Sepal.Length$class, "numeric")
-  expect_equal(test_dict$Petal.Length$name, "Petal.Length")
-  expect_equal(test_dict$Petal.Length$data_category, "PII/Value")
+  expect_equal(test_dict$DefaultLevel$Species$data_category, "Category")
+  expect_equal(test_dict$DefaultLevel$Species$class , "factor")
+  expect_equal(test_dict$DefaultLevel$Sepal.Length$class, "numeric")
+  expect_equal(test_dict$DefaultLevel$Petal.Length$name, "Petal.Length")
+  expect_equal(test_dict$DefaultLevel$Petal.Length$data_category, "PII/Value")
 })
 
 test_that("Auto Expansion by specification works", {

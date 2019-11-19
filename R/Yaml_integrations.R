@@ -88,7 +88,7 @@ metaAutoClassifier <- function(column, meta_list, dataset){
 #' @export
 #'
 #' @examples
-metaUpdateDictWithSpec <- function(a_dict, a_spec, a_dataset, a_level){
+metaUpdateDictWithSpec <- function(a_dict, a_spec, a_dataset, a_level = "DefaultLevel"){
         for(i in colnames(a_dataset)){
                 a_dict[[a_level]][[i]]  <- a_dict[[a_level]][[i]] %>%  append(
                         a_spec[[a_level]][[

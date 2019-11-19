@@ -21,16 +21,22 @@ metaDictionary <- function(the_data, dict) {
 #'
 #' @examples
 metaDictionary.default <- function(the_data, dict = list()){
+        dict[["DatasetLevel"]] <- list()
+        dict[["DatasetLevel"]][["Description"]] <- "Basic Description of the dataset"
+        dict[["DatasetLevel"]][["Name"]] <- "Full name of the dataset"
+
+        dict[["DefaultLevel"]] <- list()
+
         for(i in colnames(the_data)){
-                dict <- metaColnamer(i, dict)
+                dict[["DefaultLevel"]] <- metaColnamer(i, dict[["DefaultLevel"]])
         }
 
         for(i in colnames(the_data)){
-                dict <- metaAutoTyper(i, dict, the_data)
+                dict[["DefaultLevel"]] <- metaAutoTyper(i, dict[["DefaultLevel"]], the_data)
         }
 
         for(i in colnames(the_data)){
-                dict <- metaAutoClassifier(i, dict, the_data)
+                dict[["DefaultLevel"]] <- metaAutoClassifier(i, dict[["DefaultLevel"]], the_data)
         }
 
         dict
