@@ -4,7 +4,7 @@
 \alias{metaDictionary}
 \title{Method dispatch for metadictionary}
 \usage{
-metaDictionary(the_data, dict)
+metaDictionary(the_data, dict, levelgen)
 }
 \arguments{
 \item{the_data}{the data to be documented}

@@ -4,7 +4,8 @@
 \alias{metaDictionary.default}
 \title{The default meta_dictionary generator}
 \usage{
-\method{metaDictionary}{default}(the_data, dict = list())
+\method{metaDictionary}{default}(the_data, dict = list(),
+  levelgen = "DefaultLevel")
 }
 \arguments{
 \item{the_data}{the data to be documented}

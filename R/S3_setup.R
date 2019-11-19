@@ -2,12 +2,13 @@
 #'
 #' @param the_data the data to be documented
 #' @param dict the dictionary to append it to
+#' @param levelgen the level to generate the metadata at
 #'
 #' @return
 #' @export
 #'
 #' @examples
-metaDictionary <- function(the_data, dict) {
+metaDictionary <- function(the_data, dict, levelgen) {
         UseMethod("metaDictionary")
         }
 
@@ -15,28 +16,29 @@ metaDictionary <- function(the_data, dict) {
 #'
 #' @param the_data the data to be documented
 #' @param dict the dictionary to append it to
+#' @param levelgen the level to generate the metadata at
 #'
 #' @return
 #' @export
 #'
 #' @examples
-metaDictionary.default <- function(the_data, dict = list()){
+metaDictionary.default <- function(the_data, dict = list(), levelgen = "DefaultLevel"){
         dict[["DatasetLevel"]] <- list()
         dict[["DatasetLevel"]][["Description"]] <- "Basic Description of the dataset"
         dict[["DatasetLevel"]][["Name"]] <- "Full name of the dataset"
 
-        dict[["DefaultLevel"]] <- list()
+        dict[[levelgen]] <- list()
 
         for(i in colnames(the_data)){
-                dict[["DefaultLevel"]] <- metaColnamer(i, dict[["DefaultLevel"]])
+                dict[[levelgen]] <- metaColnamer(i, dict[[levelgen]])
         }
 
         for(i in colnames(the_data)){
-                dict[["DefaultLevel"]] <- metaAutoTyper(i, dict[["DefaultLevel"]], the_data)
+                dict[[levelgen]] <- metaAutoTyper(i, dict[[levelgen]], the_data)
         }
 
         for(i in colnames(the_data)){
-                dict[["DefaultLevel"]] <- metaAutoClassifier(i, dict[["DefaultLevel"]], the_data)
+                dict[[levelgen]] <- metaAutoClassifier(i, dict[[levelgen]], the_data)
         }
 
         dict
@@ -46,12 +48,13 @@ metaDictionary.default <- function(the_data, dict = list()){
 #'
 #' @param the_data the data to be documented
 #' @param dict the dictionary to append it to
+#' @param levelgen the level to generate the metadata at
 #'
 #' @return
 #' @export
 #'
 #' @examples
-metaDictionary.list <- function(the_data, dict = list){
+metaDictionary.list <- function(the_data, dict = list, levelgen = "DefaultLevel"){
 "no method defined yet for lists"
 
 }

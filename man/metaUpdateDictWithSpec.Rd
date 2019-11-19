@@ -4,7 +4,8 @@
 \alias{metaUpdateDictWithSpec}
 \title{Update dictionary to fit specification}
 \usage{
-metaUpdateDictWithSpec(a_dict, a_spec, a_dataset, a_level)
+metaUpdateDictWithSpec(a_dict, a_spec, a_dataset,
+  a_level = "DefaultLevel")
 }
 \arguments{
 \item{a_dict}{A dictionary for the dataset}
