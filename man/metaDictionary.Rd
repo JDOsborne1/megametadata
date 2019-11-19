@@ -10,6 +10,8 @@ metaDictionary(the_data, dict, levelgen)
 \item{the_data}{the data to be documented}
 
 \item{dict}{the dictionary to append it to}
+
+\item{levelgen}{the level to generate the metadata at}
 }
 \description{
 Method dispatch for metadictionary

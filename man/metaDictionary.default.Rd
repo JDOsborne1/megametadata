@@ -11,6 +11,8 @@
 \item{the_data}{the data to be documented}
 
 \item{dict}{the dictionary to append it to}
+
+\item{levelgen}{the level to generate the metadata at}
 }
 \description{
 The default meta_dictionary generator

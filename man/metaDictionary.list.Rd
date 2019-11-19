@@ -4,12 +4,15 @@
 \alias{metaDictionary.list}
 \title{Method for lists in the generic}
 \usage{
-\method{metaDictionary}{list}(the_data, dict = list)
+\method{metaDictionary}{list}(the_data, dict = list,
+  levelgen = "DefaultLevel")
 }
 \arguments{
 \item{the_data}{the data to be documented}
 
 \item{dict}{the dictionary to append it to}
+
+\item{levelgen}{the level to generate the metadata at}
 }
 \description{
 Method for lists in the generic

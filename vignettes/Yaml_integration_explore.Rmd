@@ -27,11 +27,11 @@ library(purrr)
 ```{r}
 
 
-system.file("extdata", "template.yml", package = "megametadata") %>%
-        read_yaml() -> tester
+#system.file("extdata", "template.yml", package = "megametadata") %>%
+#        read_yaml() -> tester
 
 tester <- iris %>% 
-  metaDictionary(tester, levelgen = "AccountLevel") 
+  metaDictionary(list(), levelgen = "AccountLevel") 
 
 system.file("extdata", "dict_spec.yml", package = "megametadata") %>%
         read_yaml() -> spec
