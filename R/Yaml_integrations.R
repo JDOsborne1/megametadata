@@ -72,30 +72,7 @@ metaAutoClassifier <- function(column, meta_list, dataset){
 }
 
 
-#' Process to append the first pass variables to the meta_dict
-#'
-#' @param a_tibble The dataset to be documenting
-#' @param Leveled_meta the level of the dataset dictionary to be documented
-#'
-#' @return
-#' @export
-#'
-#' @examples
-metaVariableAppend <- function(a_tibble, Leveled_meta = list()){
-        for(i in colnames(a_tibble)){
-                Leveled_meta <- metaColnamer(i, Leveled_meta)
-        }
 
-        for(i in colnames(a_tibble)){
-                Leveled_meta <- metaAutoTyper(i, Leveled_meta, a_tibble)
-        }
-
-        for(i in colnames(a_tibble)){
-                Leveled_meta <- metaAutoClassifier(i, Leveled_meta, a_tibble)
-        }
-
-        Leveled_meta
-}
 
 #' Update dictionary to fit specification
 #'

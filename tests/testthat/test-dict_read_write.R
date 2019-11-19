@@ -1,6 +1,6 @@
 test_that("writing dicts works", {
-  #write.dict
+  #write_dict
 })
 test_that("reading dicts works", {
-  #read.dict
+  #read_dict
 })

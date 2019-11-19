@@ -1,6 +1,6 @@
 ## Script to check the autogeneration elements of the package
 test_that("Autogeneration works", {
-  test_dict <- metaVariableAppend(iris, list())
+  test_dict <- metaDictionary.default(iris)
   expect_equal(test_dict$Species$data_category, "Category")
   expect_equal(test_dict$Species$class , "factor")
   expect_equal(test_dict$Sepal.Length$class, "numeric")

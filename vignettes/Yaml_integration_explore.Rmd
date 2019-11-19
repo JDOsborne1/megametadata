@@ -31,36 +31,13 @@ system.file("extdata", "template.yml", package = "megametadata") %>%
         read_yaml() -> tester
 
 tester$AccountLevel <- iris %>% 
-  metaVariableAppend(tester$AccountLevel) 
+  metaDictionary(tester$AccountLevel) 
 
 system.file("extdata", "dict_spec.yml", package = "megametadata") %>%
         read_yaml() -> spec
 
 
 test_data <- iris %>% as_tibble()
-
-#appendIntegerMeta <- function(a_dataframe, a_list, a_column){
- #       if(is.null(a_list[[a_column]])) {
-  #              a_list[[a_column]] <- list()
-   #     }
-#
- #       a_list[[a_column]][["min"]] <- min(a_dataframe[[a_column]])
-  #      a_list[[a_column]][["max"]] <- max(a_dataframe[[a_column]])
-   #     a_list[[a_column]][["name"]] <- a_column
-    #    a_list
-#}
-
-#test_list <- test_data %>%
- #       appendIntegerMeta(tester, "Sepal.Length")
-
-
-
-test_data[["Sepal.Length"]]
-
-tester[["AccountLevel"]][["Sepal.Length"]][["class"]]
-
-spec[["AccountLevel"]][["numeric"]]
-
 
 
 new_dict <- metaUpdateDictWithSpec(tester, spec, test_data, "AccountLevel")
