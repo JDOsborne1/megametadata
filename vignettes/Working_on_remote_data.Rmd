@@ -1,0 +1,28 @@
+---
+title: "Working_on_remote_data"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Working_on_remote_data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(megametadata)
+library(readxl)
+library(tidyverse)
+library(httr)
+```
+
+```{r}
+GET("https://query.data.world/s/je6cjcvwd3zczzyo3sx4nnj3lmjanh", write_disk(tf <- tempfile(fileext = ".xlsx")))
+df <- read_excel(tf)
+```
+

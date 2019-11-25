@@ -1,0 +1,22 @@
+default:
+  name: megametadata dictionary specification
+  description: a YAML specification used to determine which transforms are applied when generating the metadata dict
+DefaultLevel:
+  description: The default level of the Dataset
+  name: Default Level
+  numeric:
+    minimum: min
+    maximum: max
+    type: class
+    range: utilRange
+    middle: median
+    uniqueness: uniqueness
+  factor:
+    levels: levels
+    ordered: is.ordered
+  character:
+    constant_length: constCharLength
+    uniqueness: uniqueness
+AlternateLevel:
+  Description: Alternate Level aggregation of variables
+  name: Alternate Level

@@ -12,9 +12,9 @@ NULL
 ## The dataset documentation
 
 
-#' Example Specification
+#' Tester Specification
 #'
-#' An example specification which can be used to expand or update the initial
+#' An tester specification which can be used to expand or update the initial
 #' phase of the data dictionary
 #'
 #' @format A list of lists with each Level of the data and each class of column
@@ -27,3 +27,11 @@ NULL
 #'
 #' @format A list of lists with each Level of the data and each class of column
 "tester"
+
+#' Example Specification
+#'
+#' An Exanple specification which can be used to expand or update the initial
+#' phase of the data dictionary
+#'
+#' @format A list of lists with each Level of the data and each class of column
+"default_spec"

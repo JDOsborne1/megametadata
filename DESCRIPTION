@@ -20,6 +20,9 @@ Suggests:
     knitr,
     rmarkdown,
     testthat (>= 2.1.0),
-    covr
+    covr,
+    httr,
+    readxl,
+    tidyverse
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
