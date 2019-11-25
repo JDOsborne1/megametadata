@@ -1,7 +1,7 @@
 Package: megametadata
 Type: Package
 Title: Generate and use Metadata
-Version: 0.2.0
+Version: 0.3.0
 Author: Joseph Osborne 
 Maintainer: Joseph Osborne <theosborne@outlook.com>
 Description: A package to generate and use metadata files for R objects. 
