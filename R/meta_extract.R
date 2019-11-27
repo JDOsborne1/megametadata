@@ -77,11 +77,11 @@ guessDataType <- function(vect){
         Type <- dplyr::case_when(
                 class(vect) == "Date" ~ "Date"
                 , class(vect) == "POSIXct" ~ "Date-Time"
-                , (uniqueness(vect) < 0.2) & constCharLength(vect) ~ "Tag"
+                , (uniqueness(vect) < 0.1) & constCharLength(vect) ~ "Tag"
                 , (uniqueness(vect) > 0.8) & constCharLength(vect) ~ "ID"
-                , (uniqueness(vect) >= 0.2) & (uniqueness(vect) <= 0.8) & constCharLength(vect) & dateForm(vect) ~ "Date"
-                , (uniqueness(vect) >= 0.2) & (uniqueness(vect) <= 0.8) & constCharLength(vect) & postForm(vect) ~ "Post Code"
-                , (uniqueness(vect) < 0.2) & !constCharLength(vect) ~ "Category"
+                , (uniqueness(vect) >= 0.1) & (uniqueness(vect) <= 0.8) & constCharLength(vect) & dateForm(vect) ~ "Date"
+                , (uniqueness(vect) >= 0.1) & (uniqueness(vect) <= 0.8) & constCharLength(vect) & postForm(vect) ~ "Post Code"
+                , (uniqueness(vect) < 0.1) & !constCharLength(vect) ~ "Category"
                 , T ~ "PII/Value"
         )
         return(Type)
