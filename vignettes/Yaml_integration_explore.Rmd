@@ -44,5 +44,11 @@ new_dict <- metaUpdateDictWithSpec(tester, spec, test_data, "AccountLevel")
 
 
 
+
+metaSplitNominal(new_dict, "AccountLevel")
+
+  
+
+
 ```
 

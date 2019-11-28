@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(megametadata)
 library(readxl)
-library(tidyverse)
+#library(tidyverse)
 library(httr)
 ```
 
