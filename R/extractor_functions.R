@@ -54,7 +54,11 @@ metaClassExtract <- function(slice, metadata, extract_level){
 #' @export
 #'
 #' @examples
-metaSplitNominal <- function(metadata, extract_level){
+metaSplitNominal <- function(metadata, extract_level = NULL){
+        if(any(class(metadata) == "list")){
+
+        if(is.null(extract_level)) {stop("Extract Level Required for list dicts")}
+
         dict_range <- 1:length(metadata[[extract_level]])
 
         classes <- dict_range %>% purrr::map(metaClassExtract, metadata, extract_level) %>% unlist()
@@ -74,6 +78,22 @@ metaSplitNominal <- function(metadata, extract_level){
         column_split$continuous <- names[cont_slices]
 
         column_split
+        } else if(any("data.frame" %in% class(metadata))){
+        nominal_names <- metadata %>% dplyr::filter(Type %in% c("Category", "Tag")) %>% pull(Column)
+        cont_names <- metadata %>% dplyr::filter(!Type %in% c("Category", "Tag")) %>% pull(Column)
+
+        column_split <- list()
+
+        column_split$nominal <- nominal_names
+        column_split$continuous <- cont_names
+
+        column_split
+        } else {
+                stop("No method to support that structure of metadata")
+        }
+
+
+
 }
 
 

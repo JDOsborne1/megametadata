@@ -15,7 +15,8 @@ Imports:
     yaml,
     here,
     magrittr,
-    purrr
+    purrr,
+    UltraSpoofR (>= 0.3.0)
 Suggests: 
     knitr,
     rmarkdown,
@@ -24,5 +25,7 @@ Suggests:
     httr,
     readxl,
     tidyverse
+Remotes:
+    JDOsborne1/UltraSpoofR
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
