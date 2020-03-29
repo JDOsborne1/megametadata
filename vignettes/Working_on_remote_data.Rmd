@@ -19,6 +19,8 @@ library(megametadata)
 library(readxl)
 #library(tidyverse)
 library(httr)
+library(dplyr)
+library(lubridate)
 ```
 
 Importing data from a makeover monday job, data is mostly clean and contains a mixture of variables.  
@@ -27,6 +29,15 @@ Importing data from a makeover monday job, data is mostly clean and contains a m
 GET("https://query.data.world/s/je6cjcvwd3zczzyo3sx4nnj3lmjanh", write_disk(tf <- tempfile(fileext = ".xlsx")))
 df <- read_excel(tf)
 ```
+
+Some of the variables in the data do not have the appropriate file types or categorisations. In future there may be functionality to use the dict specification to rectify that, but at present, the data cleaning needs to be done before the dictionary generation
+
+```{r Cleaning the data}
+df <- df %>% 
+  mutate(Year = dmy(paste0("01-01-", Year)))
+```
+
+## Dictionary Steps
 
 The first step is to generate the basic description
 
@@ -37,11 +48,8 @@ df_dict <- df %>%
 df_dict$DatasetLevel$Name <- "Literacy Rates by Region"
 df_dict$DatasetLevel$Description <- "A dataset containing the literacy rates by region and age over time."
 
-df_dict$RegionLevel$Year$data_category <- "Date"
-
 df_dict
 ```
-
 
 
 
