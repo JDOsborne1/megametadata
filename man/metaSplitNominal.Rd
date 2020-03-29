@@ -11,6 +11,9 @@ metaSplitNominal(metadata, extract_level = NULL)
 
 \item{extract_level}{the level to perform the extract on}
 }
+\value{
+
+}
 \description{
 Variable Type Splitter
 }

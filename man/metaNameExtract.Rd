@@ -13,6 +13,9 @@ metaNameExtract(slice, metadata, extract_level)
 
 \item{extract_level}{the level to perform the extract on}
 }
+\value{
+
+}
 \description{
 Name Extractor
 }

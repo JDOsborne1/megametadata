@@ -11,6 +11,9 @@ metaColnamer(column, meta_list)
 
 \item{meta_list}{A dictionary for the dataset}
 }
+\value{
+
+}
 \description{
 Process to name the columns in the meta_dict
 }

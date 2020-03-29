@@ -15,7 +15,8 @@ Imports:
     yaml,
     here,
     magrittr,
-    purrr
+    purrr,
+    rlang
 Suggests: 
     knitr,
     rmarkdown,
@@ -23,7 +24,8 @@ Suggests:
     covr,
     httr,
     readxl,
-    tidyverse
+    tidyverse,
+    lubridate
 Remotes:
 VignetteBuilder: knitr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0

@@ -4,7 +4,9 @@
 \name{tester}
 \alias{tester}
 \title{Example Dict config}
-\format{A list of lists with each Level of the data and each class of column}
+\format{
+A list of lists with each Level of the data and each class of column
+}
 \usage{
 tester
 }

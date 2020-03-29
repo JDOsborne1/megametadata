@@ -9,6 +9,9 @@ normalise(vect)
 \arguments{
 \item{vect}{the vector in question}
 }
+\value{
+
+}
 \description{
 Normalise a Vector
 }

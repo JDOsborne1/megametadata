@@ -9,6 +9,9 @@ constCharLength(vect)
 \arguments{
 \item{vect}{the vector in question}
 }
+\value{
+
+}
 \description{
 Does the variable have a constant length
 }

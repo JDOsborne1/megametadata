@@ -4,8 +4,7 @@
 \alias{metaUpdateDictWithSpec}
 \title{Update dictionary to fit specification}
 \usage{
-metaUpdateDictWithSpec(a_dict, a_spec, a_dataset,
-  a_level = "DefaultLevel")
+metaUpdateDictWithSpec(a_dict, a_spec, a_dataset, a_level = "DefaultLevel")
 }
 \arguments{
 \item{a_dict}{A dictionary for the dataset}
@@ -15,6 +14,9 @@ metaUpdateDictWithSpec(a_dict, a_spec, a_dataset,
 \item{a_dataset}{The dataset to be documenting}
 
 \item{a_level}{The level to perform the documentation}
+}
+\value{
+
 }
 \description{
 Function which takes an existing dictionary template and returns an updated

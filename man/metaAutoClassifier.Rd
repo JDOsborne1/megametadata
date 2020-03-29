@@ -13,6 +13,9 @@ metaAutoClassifier(column, meta_list, dataset)
 
 \item{dataset}{The dataset to be documenting}
 }
+\value{
+
+}
 \description{
 process to append the typing of a column at read time to the meta_dict
 }

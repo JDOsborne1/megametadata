@@ -9,6 +9,9 @@ postForm(vect)
 \arguments{
 \item{vect}{the vector in question}
 }
+\value{
+
+}
 \description{
 Provisional postcode format checker
 }
