@@ -47,7 +47,7 @@ If you are happy with the categorisation, it is likely that the next thing you w
 
 You can use a specification file (This is easiest recorded as a YAML file but can be any list of the appropriate structure), to define the metrics for each R type in your data. megametadata will then update your dictionary with the all the metrics in your specification file. 
 
-```{r}
+```{r Updating Dictionary with spec file}
 
 system.file("extdata", "dict_spec.yml", package = "megametadata") %>%
         read_yaml() -> spec
@@ -57,14 +57,12 @@ test_data <- iris %>% as_tibble()
 
 
 new_dict <- metaUpdateDictWithSpec(tester, spec, test_data, "AccountLevel")
+```
 
+The new dictionary will now have been expanded to include the metrics from your specification file. 
 
-
-
+An extra feature of the dictionary structure is a function to determine the Nominal and Continuous varaibles in the data you are working with. This may be valuable in designing pre-processing steps or just in understanding how you may be able to break down and visualise or predict your data. 
+```{r}
 metaSplitNominal(new_dict, "AccountLevel")
-
-  
-
-
 ```
 
