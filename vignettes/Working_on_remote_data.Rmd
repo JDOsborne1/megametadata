@@ -21,6 +21,7 @@ library(readxl)
 library(httr)
 library(dplyr)
 library(lubridate)
+library(yaml)
 ```
 
 Importing data from a makeover monday job, data is mostly clean and contains a mixture of variables.  
