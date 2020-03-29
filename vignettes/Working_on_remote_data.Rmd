@@ -21,8 +21,27 @@ library(readxl)
 library(httr)
 ```
 
-```{r}
+Importing data from a makeover monday job, data is mostly clean and contains a mixture of variables.  
+
+```{r Importing the data}
 GET("https://query.data.world/s/je6cjcvwd3zczzyo3sx4nnj3lmjanh", write_disk(tf <- tempfile(fileext = ".xlsx")))
 df <- read_excel(tf)
 ```
+
+The first step is to generate the basic description
+
+```{r Generating basic desc}
+df_dict <- df %>%
+  metaDictionary(list(), levelgen = "RegionLevel")
+
+df_dict$DatasetLevel$Name <- "Literacy Rates by Region"
+df_dict$DatasetLevel$Description <- "A dataset containing the literacy rates by region and age over time."
+
+df_dict$RegionLevel$Year$data_category <- "Date"
+
+df_dict
+```
+
+
+
 
