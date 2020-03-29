@@ -19,10 +19,59 @@ library(megametadata)
 library(readxl)
 #library(tidyverse)
 library(httr)
+library(dplyr)
+library(lubridate)
+library(yaml)
 ```
 
-```{r}
+Importing data from a makeover monday job, data is mostly clean and contains a mixture of variables.  
+
+```{r Importing the data}
 GET("https://query.data.world/s/je6cjcvwd3zczzyo3sx4nnj3lmjanh", write_disk(tf <- tempfile(fileext = ".xlsx")))
 df <- read_excel(tf)
 ```
+
+Some of the variables in the data do not have the appropriate file types or categorisations. In future there may be functionality to use the dict specification to rectify that, but at present, the data cleaning needs to be done before the dictionary generation
+
+```{r Cleaning the data}
+df <- df %>% 
+  mutate(Year = dmy(paste0("01-01-", Year)))
+```
+
+## Dictionary Steps
+
+The first step is to generate the basic description
+
+```{r Generating basic desc}
+df_dict <- df %>%
+  metaDictionary(list(), levelgen = "RegionLevel")
+
+df_dict$DatasetLevel$Name <- "Literacy Rates by Region"
+df_dict$DatasetLevel$Description <- "A dataset containing the literacy rates by region and age over time."
+
+df_dict
+```
+
+Then augment the dictionary with the specification file, in this case, reusing the example one but renaming the level.
+
+```{r defining the specification file}
+system.file("extdata", "dict_spec.yml", package = "megametadata") %>%
+        read_yaml() -> spec
+
+spec[["RegionLevel"]] <- spec$AccountLevel
+spec$AccountLevel <- NULL
+spec$HouseholdLevel <- NULL
+
+spec$RegionLevel$name <- "Region Level"
+spec$RegionLevel$description <- "Regional level, reflecting the areas which were recorded in the data."
+
+```
+
+```{r Administering the specification file}
+
+new_dict <- metaUpdateDictWithSpec(df_dict, spec, df, "RegionLevel")
+new_dict
+```
+
+This new data_dict can then be saved in YAML format easily, which can be read by human users and scraping tools. 
 
