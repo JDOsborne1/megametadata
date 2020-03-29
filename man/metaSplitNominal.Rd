@@ -4,7 +4,7 @@
 \alias{metaSplitNominal}
 \title{Variable Type Splitter}
 \usage{
-metaSplitNominal(metadata, extract_level)
+metaSplitNominal(metadata, extract_level = NULL)
 }
 \arguments{
 \item{metadata}{the data fictionary}

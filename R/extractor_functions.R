@@ -79,8 +79,8 @@ metaSplitNominal <- function(metadata, extract_level = NULL){
 
         column_split
         } else if(any("data.frame" %in% class(metadata))){
-        nominal_names <- metadata %>% dplyr::filter(Type %in% c("Category", "Tag")) %>% pull(Column)
-        cont_names <- metadata %>% dplyr::filter(!Type %in% c("Category", "Tag")) %>% pull(Column)
+        nominal_names <- metadata %>% dplyr::filter(Type %in% c("Category", "Tag")) %>% dplyr::pull(Column)
+        cont_names <- metadata %>% dplyr::filter(!Type %in% c("Category", "Tag")) %>% dplyr::pull(Column)
 
         column_split <- list()
 
