@@ -33,12 +33,13 @@ The default generator also captures the column names and two measures of typing:
 - The second is the internal R type of that variable, this can help to capture the state of the data import, and give a picture of what kinds of data are in your set.
 
 ```{r Looking at the inital Formatting}
-system.file("extdata", "template.yml", package = "megametadata") %>%
-       read_yaml() -> tester
+# system.file("extdata", "template.yml", package = "megametadata") %>%
+#        read_yaml() -> tester
 
-# tester <- iris %>% 
-#   metaDictionary(list(), levelgen = "AccountLevel") 
-
+tester <- iris %>%
+  metaDictionary(list(), levelgen = "AccountLevel")
+tester[1]
+tester[[2]][1]
 ```
 
 Once you have the initial specification, its worth looking into the assumptions made by the system. While the metrics used to determine the data category and class are made as robust as we can, there are of course limitiations to automated choices. 
@@ -57,6 +58,8 @@ test_data <- iris %>% as_tibble()
 
 
 new_dict <- metaUpdateDictWithSpec(tester, spec, test_data, "AccountLevel")
+new_dict[1]
+new_dict[[2]][1]
 ```
 
 The new dictionary will now have been expanded to include the metrics from your specification file. 
