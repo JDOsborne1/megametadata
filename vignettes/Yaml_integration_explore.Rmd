@@ -32,14 +32,22 @@ The default generator also captures the column names and two measures of typing:
 - The first is of the type of data in the real world sense, what role does it play. Example being either a Category, or a value
 - The second is the internal R type of that variable, this can help to capture the state of the data import, and give a picture of what kinds of data are in your set.
 
+```{r Looking at the inital Formatting}
+system.file("extdata", "template.yml", package = "megametadata") %>%
+       read_yaml() -> tester
+
+# tester <- iris %>% 
+#   metaDictionary(list(), levelgen = "AccountLevel") 
+
+```
+
+Once you have the initial specification, its worth looking into the assumptions made by the system. While the metrics used to determine the data category and class are made as robust as we can, there are of course limitiations to automated choices. 
+
+If you are happy with the categorisation, it is likely that the next thing you want to have available are some metrics for each variable. These metrics are likely to change depending on the data category and type, indeed some metrics are not sensible on some variable types. 
+
+You can use a specification file (This is easiest recorded as a YAML file but can be any list of the appropriate structure), to define the metrics for each R type in your data. megametadata will then update your dictionary with the all the metrics in your specification file. 
+
 ```{r}
-
-
-#system.file("extdata", "template.yml", package = "megametadata") %>%
-#        read_yaml() -> tester
-
-tester <- iris %>% 
-  metaDictionary(list(), levelgen = "AccountLevel") 
 
 system.file("extdata", "dict_spec.yml", package = "megametadata") %>%
         read_yaml() -> spec
