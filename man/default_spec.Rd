@@ -4,7 +4,9 @@
 \name{default_spec}
 \alias{default_spec}
 \title{Example Specification}
-\format{A list of lists with each Level of the data and each class of column}
+\format{
+A list of lists with each Level of the data and each class of column
+}
 \usage{
 default_spec
 }

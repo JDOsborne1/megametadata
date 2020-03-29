@@ -4,7 +4,9 @@
 \name{spec}
 \alias{spec}
 \title{Tester Specification}
-\format{A list of lists with each Level of the data and each class of column}
+\format{
+A list of lists with each Level of the data and each class of column
+}
 \usage{
 spec
 }

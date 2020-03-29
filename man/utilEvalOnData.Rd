@@ -11,6 +11,9 @@ utilEvalOnData(x, data)
 
 \item{data}{the data to evaluate the function on}
 }
+\value{
+
+}
 \description{
 Function to evaluate a string name of function on some specified data
 }

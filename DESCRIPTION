@@ -16,7 +16,7 @@ Imports:
     here,
     magrittr,
     purrr,
-    UltraSpoofR (>= 0.3.0)
+    rlang
 Suggests: 
     knitr,
     rmarkdown,
@@ -24,8 +24,7 @@ Suggests:
     covr,
     httr,
     readxl,
-    tidyverse
-Remotes:
-    JDOsborne1/UltraSpoofR
+    tidyverse,
+    lubridate
 VignetteBuilder: knitr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0

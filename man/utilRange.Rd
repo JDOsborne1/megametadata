@@ -9,6 +9,9 @@ utilRange(x)
 \arguments{
 \item{x}{the vector to determine the range of}
 }
+\value{
+
+}
 \description{
 Function to determine the range of an integer list
 }

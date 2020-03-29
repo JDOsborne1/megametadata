@@ -9,6 +9,9 @@ dateForm(vect)
 \arguments{
 \item{vect}{the vector in question}
 }
+\value{
+
+}
 \description{
 Provisional date format checking function
 }

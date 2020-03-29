@@ -9,6 +9,9 @@ uniqueness(vect)
 \arguments{
 \item{vect}{the vector in question}
 }
+\value{
+
+}
 \description{
 Get the uniqueness of a vector
 }

@@ -4,7 +4,6 @@
 \name{megametadata}
 \alias{megametadata}
 \alias{meta-monster}
-\alias{megametadata-package}
 \title{Data Dictionary generation and interaction}
 \description{
 This package contains functions and examples for using and expanding data

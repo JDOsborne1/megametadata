@@ -13,6 +13,9 @@ metaAutoTyper(column, meta_list, dataset)
 
 \item{dataset}{The dataset to be documenting}
 }
+\value{
+
+}
 \description{
 Process to guess the data category of the columns for the meta_dict
 }
