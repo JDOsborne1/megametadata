@@ -51,5 +51,26 @@ df_dict$DatasetLevel$Description <- "A dataset containing the literacy rates by 
 df_dict
 ```
 
+Then augment the dictionary with the specification file, in this case, reusing the example one but renaming the level.
 
+```{r defining the specification file}
+system.file("extdata", "dict_spec.yml", package = "megametadata") %>%
+        read_yaml() -> spec
+
+spec[["RegionLevel"]] <- spec$AccountLevel
+spec$AccountLevel <- NULL
+spec$HouseholdLevel <- NULL
+
+spec$RegionLevel$name <- "Region Level"
+spec$RegionLevel$description <- "Regional level, reflecting the areas which were recorded in the data."
+
+```
+
+```{r Administering the specification file}
+
+new_dict <- metaUpdateDictWithSpec(df_dict, spec, df, "RegionLevel")
+new_dict
+```
+
+This new data_dict can then be saved in YAML format easily, which can be read by human users and scraping tools. 
 
