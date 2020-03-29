@@ -22,7 +22,15 @@ library(yaml)
 library(dplyr)
 library(purrr)
 ```
+## Generating the initial Typing
 
+When generating the specification of a new dataset, there are a few first steps. 
+
+The dataset needs a name and a description. This allows users to indentify a dataset consistently even as it requires different names on different platforms. It also allows users to understand what the underlying data is recording and its purpose, armed with which they will be able to more effectively make use of it. 
+
+The default generator also captures the column names and two measures of typing:
+- The first is of the type of data in the real world sense, what role does it play. Example being either a Category, or a value
+- The second is the internal R type of that variable, this can help to capture the state of the data import, and give a picture of what kinds of data are in your set.
 
 ```{r}
 
